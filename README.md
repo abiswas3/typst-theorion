@@ -43,7 +43,7 @@ Just import and use theorion.
 ]
 ```
 
-![image](https://github.com/user-attachments/assets/a130e5a5-a368-4ffc-8e8f-55bab85b0224)
+![image](./examples/simple.png)
 
 ## Customization
 
