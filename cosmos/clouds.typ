@@ -87,7 +87,7 @@
   "proposition",
   theorion-i18n-map.at("proposition"),
   counter: theorem-counter,
-  render: render-fn.with(fill: blue.lighten(85%)),
+  render: render-fn.with(fill: rgb("#0055AA").lighten(85%)),
 )
 
 #let (assumption-counter, assumption-box, assumption, show-assumption) = make-frame(

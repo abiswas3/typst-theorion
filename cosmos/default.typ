@@ -78,8 +78,17 @@
   body,
 ) = context if get-result(here()) == "noanswer" { none } else {
   let qed-symbol = if qed == auto { get-qed-symbol(here()) } else { qed }
-  [#emph(theorion-i18n(title)).#sym.space#body#box(width: 0em)#h(1fr)#sym.wj#sym.space.nobreak$#qed-symbol$]
-}
+  // [#emph(theorion-i18n(title)).#sym.space#body#box(width: 10em, stroke: (left: 1pt + black))#h(1fr)#sym.wj#sym.space.nobreak$#qed-symbol$]
+  pad(
+    left: 0.2em,
+    block(
+      stroke: (left: 0.2pt + gray),
+      inset: (left: 0.6em),
+      width: 99%,
+      [#emph(theorion-i18n(title)).#sym.space#body#h(1fr)#sym.wj#sym.space.nobreak$#qed-symbol$]
+    )
+  )
+ }
 
 /// Create an emphasized box with yellow styling and dashed border
 ///
