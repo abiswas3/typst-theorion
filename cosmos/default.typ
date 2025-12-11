@@ -150,13 +150,13 @@
 /// Create a note box with customizable styling and icon
 /// Base template for tip-box, important-box, warning-box, and caution-box
 ///
-/// - fill (color): Color of the border and icon. Default is `rgb("#0969DA")`
+/// - fill (color): Color of the border and icon. Default is `rgb("#179299")`
 /// - title (string|dict): Title text or dictionary for i18n. Default is "Note"
 /// - icon-name (string): Name of the icon to display from octicons set
 /// - body (content): Content of the note
 /// -> content
 #let note-box(
-  fill: rgb("#0969DA"),
+  fill: rgb("#179299"),
   title: theorion-i18n-map.at("note"),
   icon-name: "info",
   ..args,

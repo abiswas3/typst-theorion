@@ -1,5 +1,5 @@
 // HELPERS
-#let abstract(content) =  align(center)[
+#let abstract(content) =  align(left)[
   #set par(justify: true)
   #align(center)[*ABSTRACT*] 
   #text(font: "Libertinus Serif", size: 0.9em)[#content]
@@ -7,6 +7,8 @@
 
 #let conf(
   doc_title: [],
+  short_title: "",
+  short_authors: "",
   authors: (),
   abstract_string: [],
   doc,
@@ -25,8 +27,8 @@
       header: context {
           let page = counter(page).get().first()
           let body = if page == 1 [] 
-                     else if calc.odd(page) [1safsf]
-                     else [2ss]
+                     else if calc.odd(page) [#text(fill: rgb("#555555"), style: "italic")[#short_title]]
+                     else [#text(fill: rgb("#555555"), style: "italic")[#short_authors]]
           let alignment = if calc.odd(page) { right } 
                           else { left }
           align(alignment, body)
@@ -53,17 +55,26 @@
   title()
   let count = authors.len()
   let ncols = calc.min(count, 3)
-  grid(
-    columns: (1fr,) * ncols,
-    row-gutter: 24pt,
-    ..authors.map(author => [
-      #author.name \
-      #author.affiliation \
-      #link("mailto:" + author.email)
-    ]),
-  )
-
-  // abstract(abstract_string)
+  
+  // grid(
+  //   columns: (1fr,) * ncols,
+  //   row-gutter: 24pt,
+  //   ..authors.map(author => [
+  //     #author.name \
+  //     #author.affiliation \
+  //     #link("mailto:" + author.email)
+  //   ]),
+  // )
+  //
+ 
+pad(left: 1em)[
+  #for author in authors [
+    #author.name, 
+    #text(size: 0.8em, style: "italic")[#author.affiliation], 
+    #text(size: 0.8em, link("mailto:" + author.email)) \
+]
+#v(1em)
+]
 
   doc
 }

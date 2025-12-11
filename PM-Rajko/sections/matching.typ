@@ -20,10 +20,13 @@ We claim the following:
 
 #note-box(title: [Claim])[$"For every partition" X union Y = U without S, "with" |X|,|Y| >= abs(S)/3$, we have 
 
-$
-CutEdges(X, Y, G') >= 1 =>  q(G' without S) <= abs(S) #<eq:mini-claim>
-$
+   #math.equation(numbering:none, block: true)[
+   $
+     CutEdges(X, Y, G') >= 1 =>  q(G' without S) <= abs(S) 
+   $
+    ]
 ]
+
 #proof(title: [Proof Of Claim])[
 To see why, assume towards a contradiction that there exists an edge in $G'$ between _every_ partition $X union Y = U without S$, where $|X|, |Y| >= abs(S)/3$, _and_ $G' without S$ has more than $|S|$ connected components. 
 Denote the  vertex sets of these components by $C_1, dots, C_k$, for some $k > |S|$.
@@ -84,7 +87,7 @@ $
 $
 We distinguish a few cases.
 
-#block(  fill: luma(230),
+#block(  fill: rgb("#eff1f5"),
   inset: 8pt,
   radius: 4pt,)[
 *Case 1*: 
@@ -110,7 +113,7 @@ Equation @eq:algebra comes from the fact that $Size(S) Size(T) <= ((Size(S)+Size
 
 ]
 
-#block(fill: luma(230),
+#block(fill: rgb("#eff1f5"),
   inset: 8pt,
   radius: 4pt,)[
 *Case 2*: Suppose $Size(S) > Size(T)$. As $f >= 2$, we have

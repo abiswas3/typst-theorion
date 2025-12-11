@@ -12,8 +12,8 @@
 /// - body (content): Content of the box.
 /// -> content
 #let fancy-box(
-  get-border-color: loc => rgb("#0055AA").darken(0%),
-  get-body-color: loc => rgb("#0055AA").lighten(95%),
+  get-border-color: loc => rgb("#179299").darken(0%),
+  get-body-color: loc => rgb("#179299").lighten(95%),
   get-symbol: loc => sym.suit.heart.stroked,
   prefix: none,
   title: "",
@@ -70,15 +70,16 @@
 }
 
 /// Register global colors.
-#let (get-primary-border-color, set-primary-border-color) = use-state("fancy-primary-border-color", green.darken(30%))
-#let (get-primary-body-color, set-primary-body-color) = use-state("fancy-primary-body-color", green.lighten(95%))
-// colour of box
-#let (get-secondary-border-color, set-secondary-border-color) = use-state("fancy-secondary-border-color", blue.darken(
+#let (get-primary-border-color, set-primary-border-color) = use-state("fancy-primary-border-color", rgb("#7287fd").darken(30%))
+#let (get-primary-body-color, set-primary-body-color) = use-state("fancy-primary-body-color", rgb("#7287fd").lighten(95%))
+
+// colour of box in title of defintion
+#let (get-secondary-border-color, set-secondary-border-color) = use-state("fancy-secondary-border-color", rgb("#179299").darken(
   0%,
 ))
-#let (get-secondary-body-color, set-secondary-body-color) = use-state("fancy-secondary-body-color", rgb("#0055AA").lighten(95%))
-#let (get-tertiary-border-color, set-tertiary-border-color) = use-state("fancy-tertiary-border-color", rgb("#0055AA").darken(30%))
-#let (get-tertiary-body-color, set-tertiary-body-color) = use-state("fancy-tertiary-body-color", rgb("#0055AA").lighten(95%))
+#let (get-secondary-body-color, set-secondary-body-color) = use-state("fancy-secondary-body-color", rgb("#179299").lighten(95%))
+#let (get-tertiary-border-color, set-tertiary-border-color) = use-state("fancy-tertiary-border-color", rgb("#179299").darken(30%))
+#let (get-tertiary-body-color, set-tertiary-body-color) = use-state("fancy-tertiary-body-color", rgb("#179299").lighten(95%))
 
 /// Register global symbols.
 #let (get-primary-symbol, set-primary-symbol) = use-state(

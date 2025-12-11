@@ -28,7 +28,7 @@ If we could show that there exists a proof system $S$, such that for _any_ true 
 Conversely, if we could show large proof size lower bounds for some true statement $A$ in _all_ proof systems, it would lead to a formal proof of the widely believed conjecture that $#P eq.not NP$.
 Unfortunately, such lower  bounds for _arbitrary_ proof systems are out of reach.
 As an intermediate step,
-the research community has invested a significant effort in proving lower bounds for increasingly expressive proof systems (e.g.\, see @abascal2021strongly@alekhnovich2001lower@atserias2020Size@buss1999linear@conneryd2023graph@de2023clique@impagliazzo1999lower@kothari2017SumOfSquares@potechin:LIPIcs.CCC.2020.38@raz2008elusive@razborov1998lower@schoenebeck2008linear). \
+the research community has invested a significant effort in proving lower bounds for increasingly expressive proof systems (e.g.\, see @abascal2021strongly @alekhnovich2001lower @atserias2020Size @buss1999linear @conneryd2023graph@de2023clique @impagliazzo1999lower @kothari2017SumOfSquares @potechin:LIPIcs.CCC.2020.38 @raz2008elusive @razborov1998lower @schoenebeck2008linear). \
 
 In this work, we focus on the algebraic and semi-algebraic proof systems#footnote[Similar to the work of #citet(<Austrin_2022>), our lower bounds also extend to bounded depth Frege proof systems. However, the key technical component in this work is the graph theoretic techniques proposed for embedding carefully chosen hard instances into the host graph.
 As this applies broadly across proof systems, we restrict our preliminaries to PC and SoS for brevity.] of _polynomial calculus_ (PC) and _sum of squares_ (SoS). //\citep{boazCourse,parrilo2000structured}. 
@@ -36,16 +36,16 @@ In algebraic proof systems, we are given a set $Axioms ={ axiomSmall_(i) (arrow(
 In PC, the equations can be over an arbitrary, but fixed field $Field$, and in the SoS the coefficients are  over the reals.
 We say a proof $Proof$ is a refutation of $Axioms$, if it is a proof of the claim (in the specified language) that there exists no assignment of $arrow(x) in Field^n$ that satisfies _all_ the polynomial equations in $Axioms$.
 In PC and SoS, the proof $Proof$ is itself expressed as a sequence of polynomials.
-Two common measures of the complexity of a semi-algebraic proof are size (the number of monomials appearing in the proof) and the degree (the largest degree of the proof polynomials that refute $Q$).
+Two common measures of the complexity of a semi-algebraic proof are size (the number of monomials appearing in the proof) and the degree (the largest degree of the proof polynomials that refute $Axioms$).
 Trade-offs between the two are well known; in particular, any degree $d$ proof has size at most $n^(O(d))$.
 Therefore, in this work we focus on the former#footnote[Note that exponential size lower bounds only follow from degree lower bounds $d >> sqrt(n)$, as $d = O(sqrt(n))$ yields only subexponential size bounds $n^(O(sqrt(n))) = 2^(O(sqrt(n)log n))$.]
-We denote the smallest maximum degree over all proofs that refute $Axioms$ in PC and SoS, with $Degree(Axioms PC bot)$ and $Degree(Q SOS bot})$, respectively.
+We denote the smallest maximum degree over all proofs that refute $Axioms$ in PC and SoS, with $Degree(Axioms PC bot)$ and $Degree(Axioms SOS bot)$, respectively.
 One motivation for proving lower bounds for algebraic proof systems, as opposed to propositional proof systems, is that often they imply lower bounds for a broad family of related algorithms for solving combinatorial optimisation problems.
 Similarly, upper bounding the proof length has led to the fruitful discovery of many efficient algorithms.
 The SoS proof system is of particular interest because of its close connection to the sum-of-squares hierarchy of semi-definite programming.
 We refer the reader to the survey by #citet(<fleming2019semialgebraic>) for more details about the connections between the semi-algebraic proof systems and combinatorial optimisation.\par
 In this work, we study the complexity of refuting _perfect matchings_ in PC and SoS. 
-Apart from being a natural problem in its own right, perfect matchings are also related to the pigeon hole principle @maciel2000new@pitassi1993exponential@raz2004resolution@razbarov2002pgp@razborov2003resolution and Tseitin formula @filmus2013towards@galesi2019bounded@glinskih2017satisfiable@grigoriev2001linear, two well studied formulae in proof complexity.
+Apart from being a natural problem in its own right, perfect matchings are also related to the pigeon hole principle @maciel2000new @pitassi1993exponential @raz2004resolution@razbarov2002pgp @razborov2003resolution and Tseitin formula @filmus2013towards @galesi2019bounded @glinskih2017satisfiable @grigoriev2001linear, two well studied formulae in proof complexity.
 Assuming at most one pigeon fits in a single hole, the pigeon hole principle says $m$ pigeons cannot fit in $n < m$ holes.
 If we construct the complete bipartite graph with the left vertices as $m$ pigeons and the right vertices as $n < m$ holes, proving the pigeon hole principle amounts to proving that such bipartite graph does not have a perfect matching.
 There are other formulations of the pigeon hole principle (see the survey by #citet(<razbarov2002pgp>)), and almost all of them have short proofs in the sum of squares proof system.
@@ -69,7 +69,7 @@ Card(G, arrow(b)) := cases(
 $
 ]
 
-For every $e in E$, the equation $x_e(1 - x_e) = 0$ restricts the domain of the above variables to bits.
+For every $e in E$, the equation $x_e (1 - x_e) = 0$ restricts the domain of the above variables to bits.
 In plain words, $Card(G, arrow(b))$ denotes the claim that there exists a spanning subgraph $G' subset.eq G$ such that a vertex $v in V(G)$ has $b_v$ edges incident to it in $G'$.
 Note if there was an assignment of variables $(x_e)_(e in E)$ that satisfies all equations in $Card(G, arrow(1))$, where $arrow(1) = (1, dots, 1) in Field^n$, it would imply that the graph $G$ has a perfect matching (given by the edges corresponding to variables with assignment 1).
 Therefore, we define $PM(G) := Card(G, arrow(1))$.
