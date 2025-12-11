@@ -45,7 +45,7 @@ This gives us the following corollary.
   Suppose $G$ is an $(n,d, lambda)$-graph where $d >= d_0$, and $lambda < epsilon d$, and $n >= n_0$. 
   Let $B subset.eq V(G)$ be a subset of size $|B| >= n/20$, and $H$ is any graph with maximum degree at most $D$ and at most $alpha n/(log n)$ vertices.
 Then the induced sub-graph $G[B]$ contains $H^(sigma)$ such that $sigma(e)$ is odd for every $e in E(H)$.
-]<cor:embedding_top>
+]<cor:embedding-top>
 
 #proof[
   Let $m$ denote the number of edges in the induced subgraph $G[B]$, which gives us $2m = CutEdges(B, B, G)$.

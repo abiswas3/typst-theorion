@@ -1,0 +1,4 @@
+[package]
+name = "perfect-matchings"
+entrypoint = "pm-lower-bound.typ"
+version = "0.1.0"

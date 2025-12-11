@@ -93,10 +93,16 @@
 #let Degree = text(font: "New Computer Modern Math")[Deg]
 #let SOS = $tack.r_(sans(#text(size: 0.7em, "SOS")))$
 #let PC = $tack.r_(sans(#text(size: 0.7em, [PC(#$bb(F)$)])))$
-#let Card(G, b) = [Card(#G, #b)]
+#let Card(G, b) = [Card(#G, #h(0.1cm) #b)]
 #let PM(G) = [PM(#G)]
 #let MaxDegree(G) = $Delta_#G$
 #let CutEdges(S, T, G) = $e_(#G)(#S, #T)$
 #let Neighbourhood(G, v) = $Gamma_(#G)(#v)$
 #let degree(G, v) = $"deg"_(#G)(#v)$
 #let OddComponents(S) = $q(#S)$
+#let EnDeeLambda = $(n, d, lambda)$
+#let HardInstance = $H$
+#let EmbeddingFunc = $psi$
+#let Embedding(x) = $psi(#x)$
+#let MinimalDegree(x) = $delta_(#x)$
+#let Size(x) = $abs(#x)$

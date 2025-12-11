@@ -206,7 +206,8 @@
       width: 100%,
       ..args,
       {
-        block(sticky: true, text(
+        // block(sticky: true, 
+        text(
           fill: fill,
           weight: "semibold",
           octique-inline(
@@ -216,10 +217,11 @@
             baseline: .2em,
             icon-name,
           )
-            + h(.5em)
-            + title-i18n,
-        ))
-        body
+          // + h(.5em)
+          + title-i18n + ":" + h(.5em),
+        )
+      // ) // removed the block so title is on the same line
+         body 
       },
     )
   }

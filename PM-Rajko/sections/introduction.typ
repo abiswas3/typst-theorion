@@ -7,15 +7,16 @@
 // #import cosmos.rainbow: *
 // #import cosmos.clouds: *
 
-#show ref.where(
-  form: "normal"
-): set ref(supplement: it => {
-  if it.func() == heading {
-    "Chapter"
-  } else {
-    "Thing"
-  }
-})
+// #show ref.where(
+//   form: "normal"
+// ): set ref(supplement: it => {
+//   if it.func() == heading {
+//     "Chapter"
+//   } else {
+//     "Thing"
+//   }
+// })
+//
 
 = Introduction 
 
@@ -43,7 +44,7 @@ One motivation for proving lower bounds for algebraic proof systems, as opposed 
 Similarly, upper bounding the proof length has led to the fruitful discovery of many efficient algorithms.
 The SoS proof system is of particular interest because of its close connection to the sum-of-squares hierarchy of semi-definite programming.
 We refer the reader to the survey by #citet(<fleming2019semialgebraic>) for more details about the connections between the semi-algebraic proof systems and combinatorial optimisation.\par
-In this work, we study the complexity of refuting _perfect matchings_ in PC and SoS.
+In this work, we study the complexity of refuting _perfect matchings_ in PC and SoS. 
 Apart from being a natural problem in its own right, perfect matchings are also related to the pigeon hole principle @maciel2000new@pitassi1993exponential@raz2004resolution@razbarov2002pgp@razborov2003resolution and Tseitin formula @filmus2013towards@galesi2019bounded@glinskih2017satisfiable@grigoriev2001linear, two well studied formulae in proof complexity.
 Assuming at most one pigeon fits in a single hole, the pigeon hole principle says $m$ pigeons cannot fit in $n < m$ holes.
 If we construct the complete bipartite graph with the left vertices as $m$ pigeons and the right vertices as $n < m$ holes, proving the pigeon hole principle amounts to proving that such bipartite graph does not have a perfect matching.
@@ -87,7 +88,7 @@ Formally, we prove the following (for the definition of $(n, d, lambda)$-graphs 
   $
 ]
 
-] <thm:general-hardness-result>
+]<thm:general-hardness-result>
 
 
 We follow the overall approach of #citet(<Austrin_2022>). 

@@ -49,16 +49,15 @@
 Austrin and Risse [SODA, 2021] showed that refuting perfect matchings in sparse $d$-regular _random_ graphs, requires with high probability, proofs with degree $Omega(n/(log n))$ in the above proof systems. 
 We extend their result by showing the same lower bound holds for *all* $d$-regular graphs with a mild spectral gap.]
 
-#include "/sections/introduction.typ"
-#include "/sections/prelims.typ"
-#include "/sections/embedding.typ"
-#include "/sections/matching.typ"
-#include "/sections/main_proof.typ"
-#include "/sections/related_work.typ"
-
+#include "/PM-Rajko/sections/introduction.typ"
+#include "/PM-Rajko/sections/prelims.typ"
+#include "/PM-Rajko/sections/embedding.typ"
+#include "/PM-Rajko/sections/matching.typ"
+#include "/PM-Rajko/sections/main_proof.typ"
+#include "/PM-Rajko/sections/related_work.typ"
+//
 #bibliography("bibliography.bib",
              title: "References", 
              style: "association-for-computing-machinery"
-             // style : "harvard-cite-them-right"
            )
 
