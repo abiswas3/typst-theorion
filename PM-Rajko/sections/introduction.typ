@@ -38,16 +38,16 @@ We say a proof $Proof$ is a refutation of $Axioms$, if it is a proof of the clai
 In PC and SoS, the proof $Proof$ is itself expressed as a sequence of polynomials.
 Two common measures of the complexity of a semi-algebraic proof are size (the number of monomials appearing in the proof) and the degree (the largest degree of the proof polynomials that refute $Axioms$).
 Trade-offs between the two are well known; in particular, any degree $d$ proof has size at most $n^(O(d))$.
-Therefore, in this work we focus on the former#footnote[Note that exponential size lower bounds only follow from degree lower bounds $d >> sqrt(n)$, as $d = O(sqrt(n))$ yields only subexponential size bounds $n^(O(sqrt(n))) = 2^(O(sqrt(n)log n))$.]
+Therefore, in this work we focus on the former#footnote[Note that exponential size lower bounds only follow from degree lower bounds $d >> sqrt(n)$, as $d = O(sqrt(n))$ yields only subexponential size bounds $n^(O(sqrt(n))) = 2^(O(sqrt(n)log n))$.].
 We denote the smallest maximum degree over all proofs that refute $Axioms$ in PC and SoS, with $Degree(Axioms PC bot)$ and $Degree(Axioms SOS bot)$, respectively.
 One motivation for proving lower bounds for algebraic proof systems, as opposed to propositional proof systems, is that often they imply lower bounds for a broad family of related algorithms for solving combinatorial optimisation problems.
 Similarly, upper bounding the proof length has led to the fruitful discovery of many efficient algorithms.
 The SoS proof system is of particular interest because of its close connection to the sum-of-squares hierarchy of semi-definite programming.
-We refer the reader to the survey by #citet(<fleming2019semialgebraic>) for more details about the connections between the semi-algebraic proof systems and combinatorial optimisation.\par
+We refer the reader to the survey by #citet(<fleming2019semialgebraic>) for more details about the connections between the semi-algebraic proof systems and combinatorial optimisation. 
 In this work, we study the complexity of refuting _perfect matchings_ in PC and SoS. 
 Apart from being a natural problem in its own right, perfect matchings are also related to the pigeon hole principle @maciel2000new @pitassi1993exponential @raz2004resolution@razbarov2002pgp @razborov2003resolution and Tseitin formula @filmus2013towards @galesi2019bounded @glinskih2017satisfiable @grigoriev2001linear, two well studied formulae in proof complexity.
 Assuming at most one pigeon fits in a single hole, the pigeon hole principle says $m$ pigeons cannot fit in $n < m$ holes.
-If we construct the complete bipartite graph with the left vertices as $m$ pigeons and the right vertices as $n < m$ holes, proving the pigeon hole principle amounts to proving that such bipartite graph does not have a perfect matching.
+If we construct the complete bipartite graph with the left vertices as $m$ pigeons and the right vertices as $n < m$ holes, proving the pigeon hole principle amounts to proving that such a bipartite graph does not have a perfect matching.
 There are other formulations of the pigeon hole principle (see the survey by #citet(<razbarov2002pgp>)), and almost all of them have short proofs in the sum of squares proof system.
 In contrast, Tseitin formulae are known to require long proofs. The Tseitin formula over a graph claims that there is a spanning subgraph in which every vertex has odd degree.
 If a graph has a perfect matching, then the subgraph described by the matching ensures that every vertex has odd degree.
@@ -64,11 +64,12 @@ we define $Card(G, arrow(b))$ as the following set of polynomial constraints ove
 $
 Card(G, arrow(b)) := cases(
   x_e (1 - x_e) &= 0 & "for every" e in E,
-  sum_(e tilde v) x_e &= b_v & "for every" v in V
+  sum_(e ~ v) x_e &= b_v & "for every" v in V
 )
 $
 ]
 
+where we use notation $e ~ v$ to denote the set of edges $e$ incident on node $v$.
 For every $e in E$, the equation $x_e (1 - x_e) = 0$ restricts the domain of the above variables to bits.
 In plain words, $Card(G, arrow(b))$ denotes the claim that there exists a spanning subgraph $G' subset.eq G$ such that a vertex $v in V(G)$ has $b_v$ edges incident to it in $G'$.
 Note if there was an assignment of variables $(x_e)_(e in E)$ that satisfies all equations in $Card(G, arrow(1))$, where $arrow(1) = (1, dots, 1) in Field^n$, it would imply that the graph $G$ has a perfect matching (given by the edges corresponding to variables with assignment 1).
@@ -77,7 +78,7 @@ When $|V|$ is odd, $G$ trivially does not contain a perfect matching. How diffic
 They conjecture that the hardness results should also apply to general expander graphs but leave showing so as an open problem @Austrin_2022[~see~Section 6].
 In this work, we verify this by extending their result to all $d$-regular spectral expanders, that is, $d$-regular graphs with a mild condition on the spectral gap.
 In fact, similar to Austrin and Risse, we reduce the hardness of refuting $Card(G, arrow(t))$, where $arrow(t) = (t, dots, t)$, for any odd value $t$, to the hardness of refuting $Card(G, arrow(1))$, where $arrow(1) = (1, dots, 1)$.
-As another special case, this answers the _even-colouring_ case when $t = d/2$ is odd, a problem posed by Buss and Nordstr\u{00F6}m  #cite(<buss2021proof>, supplement: [Open Problem 7.7]), which asks, _"Are even colouring formulas over expander graphs hard for polynomial calculus over fields of characteristic distinct from 2 ?"_
+As another special case, this answers the _even-colouring_ case when $t = d/2$ is odd, a problem posed by Buss and Nordstr\u{00F6}m  #cite(<buss2021proof>, supplement: [~see Open Problem 7.7]), which asks, _"Are even colouring formulas over expander graphs hard for polynomial calculus over fields of characteristic distinct from 2 ?"_
 Formally, we prove the following (for the definition of $(n, d, lambda)$-graphs see @sec:graph-theory-prelims[Section]).
 
 #theorem(title: [Hardness Result For $Card(G, arrow(t))$])[

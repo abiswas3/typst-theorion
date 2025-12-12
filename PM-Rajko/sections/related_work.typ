@@ -15,7 +15,7 @@ In propositional#footnote[As opposed to algebraic proof complexity] proof comple
  #citet(<pitassi2016PolyLogFrege>) show Tseitin lower bounds for Frege proof systems  by relying on the embedding result by #citet(<kleinberg1996short>), which allows one to embed any bounded degree graph $H$ of size $O(n\/("poly"(log n)))$ into an expander graph on $n$ vertices as a minor (not necessarily a topological one). 
 #citet(<krivelevich2021completeMinors>) simplify and improve the above embedding theorem to allow for embedding any graph $H$ with size $O(n\/log n)$ as an ordinary minor .
 However, embedding a hard instance $H$ into $G$ as an ordinary minor does not guarantee that the hardness of $H$ is preserved in the setting considered in this paper. In particular, it is entirely possible that one of the edge contractions to obtain the minor results in $H$ now being easy to refute.
-Thus, these embedding theorems cannot be directly applied.
+Consequently, these embedding theorems cannot be directly applied show hardness of refuting perfect matchings in our setting
 Instead, as described in section @sec:main-proof[Section], one way to preserve hardness is to use  embedding theorems that allow for topological embeddings that allow for edge sub-divisions of odd size @draganic22rolling  @nenadov2023routing.
 In order to get a topological embedding, Austrin and Risse modify the ordinary embedding theorem in @krivelevich2021completeMinors but critically rely on the host graph being random.
 In this work, we use the embedding theorem by  #citet(<draganic22rolling>), which greatly simplifies the argument. 
