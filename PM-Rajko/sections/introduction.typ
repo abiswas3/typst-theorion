@@ -7,20 +7,9 @@
 // #import cosmos.rainbow: *
 // #import cosmos.clouds: *
 
-// #show ref.where(
-//   form: "normal"
-// ): set ref(supplement: it => {
-//   if it.func() == heading {
-//     "Chapter"
-//   } else {
-//     "Thing"
-//   }
-// })
-//
+= Introduction
 
-= Introduction 
-
-Perhaps the most fundamental problem in computation is to provide an answer to the question asked by #citeauthor(<cook1979relative>) in their seminal paper~@cook1979relative - "_Given a true statement $A$, is there a short proof of the claim that $A$ is true_".
+Perhaps the most fundamental problem in computation is to provide an answer to the question asked by #citet(<cook1979relative>) in their seminal paper - "_Given a true statement $A$, is there a short proof of the claim that $A$ is true_".
 In trying to answer this question, we must first describe what constitutes a valid proof. That is, we must describe the language in which the proof is written (axioms), and the rules for checking it (the verifier).
 Each set of rules for writing and checking a proof defines a proof system.
 Therefore, a precise restatement of the question above is the following:  "_Given a true statement $A$ and a proof system $S$, what is the length of a shortest proof $#Proof in S$ that proves $A$_?"
