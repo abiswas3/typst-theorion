@@ -168,9 +168,6 @@ Next we introduce standard tools for randomised algorithms.
 A dependency graph for a set of events $E_1, dots, E_n$ is a graph $G=(V, E)$ such that $V = {1 dots, n }$ and,  for $i= 1, dots, n$, event $E_i$ is mutually independent
 of the events ${E_j | (i, j) in.not E}$. 
 The degree of the dependency graph is the maximum degree of any vertex in the graph.
-The proof of @lemma:mult-chernoff and @lemma:lll
-can be found in any textbook on randomised algorithms (for example, see @mitzenmacher2017probability[~see Ch. 1 and 7]). 
-
 
 #lemma(title: [Lov#[á]sz Local Lemma])[
 Let $E_1,...,E_n$ be a set of events over some probability space with probability $dist$, and assume that for some $beta in (0,1)$ the following hold:
@@ -196,6 +193,9 @@ $]
 
 
 ]<lemma:mult-chernoff>
+
+The proof of @lemma:mult-chernoff and @lemma:lll
+can be found in any textbook on randomised algorithms (for example, see @mitzenmacher2017probability[~see Ch. 1 and 7]). 
 
 
 @thm:partition is originally by @Austrin_2022[~see Lemma 4.3], re-derived here for completeness.

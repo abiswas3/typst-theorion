@@ -27,8 +27,8 @@
       header: context {
           let page = counter(page).get().first()
           let body = if page == 1 [] 
-                     else if calc.odd(page) [#text(fill: rgb("#555555"), style: "italic")[#short_title]]
-                     else [#text(fill: rgb("#555555"), style: "italic")[#short_authors]]
+                     else if calc.odd(page) [#text(fill: rgb("#555555"), style: "italic", size: 0.8em)[#short_title]]
+                     else [#text(fill: rgb("#555555"), style: "italic", size: 0.8em)[#short_authors]]
           let alignment = if calc.odd(page) { right } 
                           else { left }
           align(alignment, body)
