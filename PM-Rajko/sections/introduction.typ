@@ -9,7 +9,7 @@
 
 = Introduction
 
-Perhaps the most fundamental problem in computation is to provide an answer to the question asked by #citet(<cook1979relative>) in their seminal paper - "_Given a true statement $A$, is there a short proof of the claim that $A$ is true_".
+Perhaps the most fundamental problem in computation is to provide an answer to the question asked by #citeauthor(<cook1979relative>) in their seminal paper~@cook1979relative - "_Given a true statement $A$, is there a short proof of the claim that $A$ is true_".
 In trying to answer this question, we must first describe what constitutes a valid proof. That is, we must describe the language in which the proof is written (axioms), and the rules for checking it (the verifier).
 Each set of rules for writing and checking a proof defines a proof system.
 Therefore, a precise restatement of the question above is the following:  "_Given a true statement $A$ and a proof system $S$, what is the length of a shortest proof $#Proof in S$ that proves $A$_?"
@@ -21,7 +21,7 @@ the research community has invested a significant effort in proving lower bounds
 
 In this work, we focus on the algebraic and semi-algebraic proof systems#footnote[Similar to the work of #citet(<Austrin_2022>), our lower bounds also extend to bounded depth Frege proof systems. However, the key technical component in this work is the graph theoretic techniques proposed for embedding carefully chosen hard instances into the host graph.
 As this applies broadly across proof systems, we restrict our preliminaries to PC and SoS for brevity.] of _polynomial calculus_ (PC) and _sum of squares_ (SoS). //\citep{boazCourse,parrilo2000structured}. 
-In algebraic proof systems, we are given a set $Axioms ={ axiomSmall_(i) (arrow(x)) " " | " " i in [m] }$ of $m$ polynomial equations#footnote[Semi-algebraic proof systems also allow for inequalities but we will not deal with inequality constraints in this paper.] over $n$ variables $arrow(x) = {x_1, dots, x_n}$.
+In algebraic proof systems, we are given a set $Axioms ={ axiomSmall_(i) (arrow(x)) |  i in [m] }$ of $m$ polynomial equations#footnote[Semi-algebraic proof systems also allow for inequalities but we will not deal with inequality constraints in this paper.] over $n$ variables $arrow(x) = {x_1, dots, x_n}$.
 In PC, the equations can be over an arbitrary, but fixed field $Field$, and in the SoS the coefficients are  over the reals.
 We say a proof $Proof$ is a refutation of $Axioms$, if it is a proof of the claim (in the specified language) that there exists no assignment of $arrow(x) in Field^n$ that satisfies _all_ the polynomial equations in $Axioms$.
 In PC and SoS, the proof $Proof$ is itself expressed as a sequence of polynomials.
@@ -44,7 +44,6 @@ However, formally refuting Tseitin formulae for expander graphs with an odd numb
 // The exact complexity of refuting the perfect matching principle for expander graphs, however, remains unknown.
 Given its close connections to the pigeon-hole and Tseitin, and the different behaviour of the two formulae, it is natural to determine the complexity of refuting perfect matchings for non-bipartite graphs.\
 To refute perfect matchings in an algebraic proof system, we first need to specify combinatorial constraints as algebraic equalities. Given an undirected graph $G=(V,E)$, $V = {1, dots, n}$, and a vector $arrow(b) = (b_1, dots, b_n) in Field^n$,
-// % we denote with $arrow{b} = (b_1, \dots, b_{|V|})  \in \Field^{\Size{V}}$ the vector of all $b$'s vector with size $\Size{V}$.
 we define $Card(G, arrow(b))$ as the following set of polynomial constraints over variables $x_e$ for $e in E$:
 
 #set math.cases(gap: 1em)
@@ -71,7 +70,7 @@ As another special case, this answers the _even-colouring_ case when $t = d/2$ i
 Formally, we prove the following (for the definition of $(n, d, lambda)$-graphs see @sec:graph-theory-prelims[Section]).
 
 #theorem(title: [Hardness Result For $Card(G, arrow(t))$])[
-  There exist universal constants $epsilon, n_0, d_0 in NN$ such that for any odd $n >= n_0$ and even $d in [d_0, n]$, the following holds for *any* $(n, d, lambda)$-graph $G$ with $lambda < epsilon d$, and for any odd $1 <= t <= d$:
+  There exist universal constants $epsilon, n_0, d_0 in NN$ such that for any *odd* $n >= n_0$ and *even* $d in [d_0, n]$, the following holds for *any* $(n, d, lambda)$-graph $G$ with $lambda < epsilon d$, and for any *odd* $1 <= t <= d$:
   #math.equation(block: true, numbering: none)[
   $
   Degree(Card(G, arrow(t)) PC bot = ) = Omega(n/(log n))  
@@ -83,20 +82,21 @@ Formally, we prove the following (for the definition of $(n, d, lambda)$-graphs 
 
 We follow the overall approach of #citet(<Austrin_2022>). 
 Very briefly, the strategy is to obtain an affine restriction (see @def:affine-restriction[Definition]) $Card(G, arrow(t))|_rho equiv PM(H)$ where $H$ is some graph for which refuting $PM(H)$ requires large degree.
-An example of such $H$ is given by Buss, Grigoriev, and Impagliazzo \cite{buss1999linear}. We now describe how to find such a restriction in more details: Using a result of #citet(<draganic22rolling>), we show that $H$ topologically embeds into a given expander graph $G$ with $lambda < epsilon d$ for some universal small constant $epsilon in (0,1)$, such that all paths corresponding to the embedding have odd length.
+An example of such $H$ is given by #citet(<buss1999linear>).
+We now describe how to find such a restriction in more details: Using a result of #citet(<draganic22rolling>), we show that $H$ topologically embeds into a given expander graph $G$ with $lambda < epsilon d$ for some universal small constant $epsilon in (0,1)$, such that all paths corresponding to the embedding have odd length.
 The main technical ingredient of Austrin and Risse is also a similar embedding theorem, albeit a significantly more complicated one.
 Moreover, we show that one can find such an embedding so that the subgraph of $G$ induced by vertices which are not part of the embedding has a perfect matching.
 This allows us to use the restriction argument to transfer the hardness of $PM(H)$ into the hardness of $PM(G)$.
 To extend this to hardness of $Card(G, arrow(t))$ for an odd $3 <= t <= d$, it suffices to show that the graph $G'$ obtained from $G$ by removing all edges that participate in the embedding and the matching contains a $(t-1)$-regular spanning subgraph.
 Austrin and Risse achieve this using the contiguity property of random regular graphs (and hence their hardness result for $Card(G, arrow(t))$ critically relies on randomness). 
 Instead, we provide a significantly simpler and shorter argument based on Tutte's criterion.
- As a random $d$-regular graph is with high probability an $(n, d, lambda)$-graph with $lambda = Theta(sqrt(d))$ (see Theorem A by #citet(<tikhomirov2016spectralgapdenserandom>), our embedding theorem readily applies in the context of @Austrin_2022.
+ As a random $d$-regular graph is with high probability an $(n, d, lambda)$-graph with $lambda = Theta(sqrt(d))$ ( #cite(<tikhomirov2016spectralgapdenserandom>, supplement:[~see Theorem A]), our embedding theorem readily applies in the context of @Austrin_2022.
 
 The rest of the document is structured as follows. 
 In @sec:prelims[Section], we describe the requisite background from graph theory and proof complexity.
 In @sec:embed-machinery[Section], we describe the machinery for finding a desired topological embedding.
 In @sec:matching-machinery[Section], we prove conditions under which the residual graph has a perfect matching or, more generally, a $(t-1)$-regular spaning subgraph.
-In @sec:main-proof[Section], we use the tools from the previous sections to prove Theorem \ref{thm:general-hardness-result}. 
+In @sec:main-proof[Section], we use the tools from the previous sections to prove @thm:general-hardness-result. 
 In Section @sec:related-work[Section] we briefly discuss a few other lower bounds using embeddings in proof complexity, and conclude with some future directions.
 //
 

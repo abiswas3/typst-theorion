@@ -12,7 +12,7 @@
 
 In this section we prove @thm:general-hardness-result[Theorem].
 As $Card(G, arrow(t)) equiv Card(G, arrow(d)-arrow(t)))$, without loss of generality we only prove the theorem for $t <= d/2$. 
-Let $G=(V,E)$ be an $EnDeeLambda$-graph on an odd number of vertices with $lambda < epsilon d$, where $epsilon < 1/(100C^(3/2))$ and $C=6$. 
+Let $G=(V,E)$ be an $EnDeeLambda$-graph on an odd number of vertices with $lambda < epsilon d$, where $epsilon < 1\/(100C^(3/2))$ and $C=6$. 
 For sufficiently small constant $alpha in (0,1)$, let $HardInstance$ denote the graph on $h=alpha n/(log n)$ vertices as given by @lemma:worst-case-instance-sos (to show lower bounds for PC, we use $H$ from @lemma:worst-case-instance-PC). 
 Recall that any SoS proof which refutes $PM(H)$ has degree $Omega(h)$. 
 We now make use of $H$ to show the hardness of refuting $Card(G, arrow(t)))$.
@@ -32,7 +32,7 @@ $
  This is always possible as $u ~> v$ has odd length. 
  Observe that $PM(G_EmbeddingFunc)|_{rho'} equiv PM(H)$. 
 
-- As $n$ is odd and $abs(V(G_(EmbeddingFunc)))$ is odd, we have that $U = V(G) without V(G_EmbeddingFunc)$ has even size. From @eq:sizenbrA we have that $G[U]$ has minimum degree at least $tilde(c)$. 
+- As $n$ is odd and $abs(V(G_(EmbeddingFunc)))$ is odd, we have that $U = V(G) without V(G_EmbeddingFunc)$ has even size. From @eq:sizenbrA we have that $G[U]$ has minimum degree at least $(9d)/10$. 
  As $lambda < d/50$ (with room to spare), we can invoke @thm:perfect-matching to conclude $G[U]$ has a perfect matching $M$.
 
 - Consider the subgraph $G' subset.eq G$ obtained by deleting all edges $e in E(G_(EmbeddingFunc)) union M$, where $M$ is the perfect matching from the step above. 

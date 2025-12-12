@@ -19,7 +19,7 @@ Given a graph $H$ and a function $sigma: E(H) -> NN$, the $sigma$-subdivision of
 
 ]<def:subdivisions>
 
-If a graph $G$ contains $H^{sigma}$ for some $sigma: E(H) -> NN$, then we say $G$ contains $H$ as a _topological minor_. 
+If a graph $G$ contains $H^sigma$ for some $sigma: E(H) -> NN$, then we say $G$ contains $H$ as a _topological minor_. 
 In our application, it will be important that we can control the parity of $sigma(e)$. 
 The following result follows directly from @draganic22rolling[~see Theorem 1]. 
 

@@ -28,6 +28,7 @@ $
 The degree of a proof $Proof$ is
 
 #math.equation(block:true, numbering: none)[
+  
 $ Degree(Proof) := max{max_(i in [m]) Degree(t_i) + Degree(p_i), max_(i in [a]) 2 Degree(s_i) }
 $
 ]
@@ -55,8 +56,8 @@ Polynomial Calculus (PC) is a dynamic version of the static Nullstellensatz proo
 
 #definition(title: [Polynomial Calculus Refutations])[
 
-A Polynomial Calculus (PC) refutation of $Axioms$ over $Field$ is a sequence of polynomials $Proof = (t_1, dots, t_ell)$  such that $t_ell = 1$, and for each $i eq.not l$, either (1) $t_i in Axioms$, or (2) $t_i$ is derived from ${t_j}_(j < i)$ using the above rules.
-The degree of the proof is given by $Degree(Proof) = max_(i in l)Degree(t_i)$. 
+A Polynomial Calculus (PC) refutation of $Axioms$ over $Field$ is a sequence of polynomials $Proof = (t_1, dots, t_ell)$  such that $t_ell = 1$, and for each $i eq.not l$, either (1) $t_i in Axioms$, or (2) $t_i$ is derived from $(t_j)_(j < i)$ using the above rules.
+The degree of the proof is given by $Degree(Proof) = max_(i in l) Degree(t_i)$. 
 If we let $Pi$ denote the set of all PC refutations of $Axioms$, then
 
   #math.equation(block:true, numbering: none)[
@@ -94,7 +95,7 @@ For example, $Axioms = {f_a, f_b, "True" }$ and $Axioms' = {f_a, f_b}$ are equiv
 
 #definition(title: [Affine Restriction])[
 We say that an axiom $Axioms'$ is an
-affine restriction of $Axioms$ if there is a map $rho : {x_1,dots,x_n} -> {x_1, dots, x_n, arrow(x)_1, dots, arrow(x)_n, 1, 0 }$ such that $Axioms equiv Axioms|_{rho}$.
+affine restriction of $Axioms$ if there is a map $rho : {x_1,dots,x_n} -> {x_1, dots, x_n, overline(x)_1, dots, overline(x)_n, 1, 0 }$ such that $Axioms equiv Axioms|_{rho}$.
 
 ]<def:affine-restriction>
 
@@ -117,7 +118,9 @@ We use standard graph theoretic notation. For a graph $G$, we use $V(G)$ and $E(
 For a vertex $v in V(G)$, we use $Neighbourhood(G, v) = { u in V(G) : (u,v) in E' }$ to denote the neighbourhood of $v$ in $G$, and $degree(G, v) := |Neighbourhood(G, v)|$.
 Given two sets $S, T subset.eq V(G)}$, we  use $CutEdges(S, T, G)$ to denote the number of edges in $G$ with one endpoint in $S$ and one endpoint in $T$.  
 Note that we do not require $S$ and $T$ to be disjoint; in case they are not disjoint, every edge with both endpoints in $S inter T$ is counted twice in $CutEdges(S, T, G)$. 
-If the graph $G$ is clear from the context, we omit the subscript. Given $W subset.eq V(G)$, we denote with $G[W]$ the subgraph of $G$ induced by $W$. We say that a subgraph $G' subset.eq G$ is _spanning_ if $V(G') = V(G)$.
+If the graph $G$ is clear from the context, we omit the subscript. 
+Given two vertices $u$ and $v$, we use $u ~> v$ to denote the sequence of edges in the path from $u$ and $v$. 
+Given $W subset.eq V(G)$, we denote with $G[W]$ the subgraph of $G$ induced by $W$. We say that a subgraph $G' subset.eq G$ is _spanning_ if $V(G') = V(G)$.
 Next, we give a definition of pseudorandom graphs.
 
 #definition(title: [$(n, d, lambda)$-graphs])[
@@ -133,7 +136,7 @@ The following is a well known result of #citet(<alon88mixing>).
 
 #math.equation(block: true, numbering: none)[
 $
-  abs(CutEdges(S, T, G) - d/n |S| |T|) <= lambda sqrt(|S||T|)
+  abs(CutEdges(S, T, G) - d/n abs(S)abs(T)) <= lambda sqrt(abs(S)abs(T))
 $
 ]
 
@@ -153,7 +156,7 @@ If a graph $G$ has _even_ number of vertices and for every subset $S subset.eq V
 
 #math.equation(block: true, numbering: none)[
   $
-  OddComponents(G without (S union T)) <= |S| f - sum_(w in T) (f - abs(Neighbourhood(G, w) without S))
+  OddComponents(G without (S union T)) <= abs(S)f - sum_(w in T) (f - abs(Neighbourhood(G, w) without S))
   $]
   Then $G$ contains a spanning subgraph $G' subset.eq G$ which if $f$-regular.
 ]<lemma:tutte-criterion-factor>
@@ -161,20 +164,13 @@ If a graph $G$ has _even_ number of vertices and for every subset $S subset.eq V
 
 == Probabilistic Tools 
 
-#lemma(title: [Multiplicative Chernoff bound])[
-Suppose $X_1, ..., X_n$ are identical independent random variables taking values in ${0, 1}$. Let $X$ denote their sum and let $mu = n Exp(X_1)$ denote the sum's expected value. Then, for any $0 < delta < 1$, we have
-
-#math.equation(block: true, numbering: none)[
-$
-Pr(|X - mu| >= delta mu) <= 2 e^(- (delta^2 mu)\/3)
-$]
-
-
-]<lemma:mult-chernoff>
-
+Next we introduce standard tools for randomised algorithms.
 A dependency graph for a set of events $E_1, dots, E_n$ is a graph $G=(V, E)$ such that $V = {1 dots, n }$ and,  for $i= 1, dots, n$, event $E_i$ is mutually independent
 of the events ${E_j | (i, j) in.not E}$. 
 The degree of the dependency graph is the maximum degree of any vertex in the graph.
+The proof of @lemma:mult-chernoff and @lemma:lll
+can be found in any textbook on randomised algorithms (for example, see @mitzenmacher2017probability[~see Ch. 1 and 7]). 
+
 
 #lemma(title: [Lov#[á]sz Local Lemma])[
 Let $E_1,...,E_n$ be a set of events over some probability space with probability $dist$, and assume that for some $beta in (0,1)$ the following hold:
@@ -190,10 +186,19 @@ Then $Pr( inter_(i=1)^n E_i ) > 0$
 
 ]<lemma:lll>
 
+#lemma(title: [Multiplicative Chernoff bound])[
+Suppose $X_1, ..., X_n$ are identical independent random variables taking values in ${0, 1}$. Let $X$ denote their sum and let $mu = n Exp(X_1)$ denote the sum's expected value. Then, for any $0 < delta < 1$, we have
 
-The proof of @lemma:mult-chernoff and @lemma:lll
-can be found in any textbook on randomised algorithms (for example, see @mitzenmacher2017probability[~see Ch. 1 and 7]). 
-The following lemma is by @Austrin_2022[~see Lemma 4.3], re-derived here for completeness.
+#math.equation(block: true, numbering: none)[
+$
+Pr(|X - mu| >= delta mu) <= 2 e^(- (delta^2 mu)\/3)
+$]
+
+
+]<lemma:mult-chernoff>
+
+
+@thm:partition is originally by @Austrin_2022[~see Lemma 4.3], re-derived here for completeness.
 
 #lemma(title: [Partition Theoem])[
 For every $0 < c < 1$ and $gamma> 0$, there exists $d_0$ such that the following holds. If $G$ is a $d$-regular graph, for some $d >= d_0$, then there exists a subset $A subset.eq V(G)$ such that

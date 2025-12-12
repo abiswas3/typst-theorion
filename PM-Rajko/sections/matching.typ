@@ -11,7 +11,7 @@
 As described earlier, the second ingredient in our hardness proof is showing that a certain residual graph contains a perfect matching or a spanning $(t-1)$-regular subgraph. In this section we state and prove these ingredients.
 
 #lemma(title: [Perfect Matching Lemma])[
-Let $G$ be an  $(n, d, lambda)$-graph with $lambda < d/50$, and suppose $G' subset.eq G$ satisfies $delta(G') >= 0.9d$. Then for all $S subset.eq V(G')$, $G'without S$ has at most $|S|$ connected components, that is, $OddComponents(G' without S) <= |S|$. Therefore, if $G'$ has an even number of vertices then it contains a perfect matching.
+Let $G$ be an  $(n, d, lambda)$-graph with $lambda < d\/50$, and suppose $G' subset.eq G$ satisfies $delta(G') >= 0.9d$. Then for all $S subset.eq V(G')$, $G'without S$ has at most $|S|$ connected components, that is, $OddComponents(G' without S) <= |S|$. Therefore, if $G'$ has an even number of vertices then it contains a perfect matching.
 ]<thm:perfect-matching>
 
 #proof[
@@ -28,15 +28,15 @@ We claim the following:
 ]
 
 #proof(title: [Proof Of Claim])[
-To see why, assume towards a contradiction that there exists an edge in $G'$ between _every_ partition $X union Y = U without S$, where $|X|, |Y| >= abs(S)/3$, _and_ $G' without S$ has more than $|S|$ connected components. 
+To see why, assume towards a contradiction that there exists an edge in $G'$ between _every_ partition $X union Y = U without S$, where $|X|, |Y| >= abs(S)\/3$, _and_ $G' without S$ has more than $|S|$ connected components. 
 Denote the  vertex sets of these components by $C_1, dots, C_k$, for some $k > |S|$.
 Let $X^* := C_1 union dots union C_(s)$ and $Y^* := C_(s+1) union dots union C_(k)$, where $s = floor(|S|\/2)   >= |S|\/ 3$.
-By construction, even if each component $C_i$ is a singleton set, we get that  $abs(X^*), abs(Y^*) >= abs(S)/3$.
+By construction, even if each component $C_i$ is a singleton set, we get that  $abs(X^*), abs(Y^*) >= abs(S)\/3$.
 Now as all $C_i$'s are disjoint connected components, there can be no edge between $X^*$ and $Y^*$.
-Therefore, we have found a partition $X^* union Y^* = U without S$ with $|X^*|, |Y^*| >= |S|/3$ without an edge between them, which contradicts our assumption that all appropriately sized partitions have at least one edge between them.
+Therefore, we have found a partition $X^* union Y^* = U without S$ with $|X^*|, |Y^*| >= |S|\/3$ without an edge between them, which contradicts our assumption that all appropriately sized partitions have at least one edge between them.
 ]
 
-To complete our main proof, it suffices to show $CutEdges(X, Y, G') >= 1$ for every partition $X union Y = U without S$ with $|X|, |Y| >= |S|/3$.
+To complete our main proof, it suffices to show $CutEdges(X, Y, G') >= 1$ for every partition $X union Y = U without S$ with $|X|, |Y| >= |S|\/3$.
 
 Consider some arbitrary partition $X union Y$ of $U without S$, with $|X|, |Y| >= |S|\/3$, and without loss of generality assume $|X| <= |Y|$. 
 Then by a simple counting argument we get
@@ -50,7 +50,7 @@ CutEdges(X, X, G') + CutEdges(X, S, G') &<= CutEdges(X, X, G) + CutEdges(X, S, G
  &<= d/n |X| ((n-|S|))/2 + lambda |X| + d/n |X||S| + lambda sqrt(3) |X| #<eq:upper-bound-X>\
 &< (d|X|)/ 2 + (d abs(X)abs(S))/(2n) + 3 lambda |X|\
 &< d/2 |X| + d/4 |X| + 3 lambda |X| #<eq:smaller-than-one> \
-&< tilde(c) |X|  #<eq:upper-bound-S>
+&< (9d)/10 |X|  #<eq:upper-bound-S>
 $
 These steps are justified as follows: 
 The first equation follows from the @lemma:expanders-mixing-lemma; @eq:upper-bound-X comes from @eq:upp-X and $|X| >= |S|\/3$;
@@ -63,7 +63,7 @@ The next lemma shows that subgraphs of $(n, d, lambda)$-graphs with large minimu
 #lemma(title:[Regular Subgraph Lemma])[
   For every $C > 1$ there exists $d_0 = d_0(C)$ such that the following holds.
 Suppose $G$ is an $EnDeeLambda$ graph with $lambda < epsilon d$ and $d >= d_0$, where $epsilon < 1\/(100C^(3/2))$.
-If $G' subset.eq G$ has minimum degree $MinimalDegree(G') >= d - C$, then $G'$ contains a spanning $f$-regular subgraph for any even $2 <= f <= d/2$. 
+If $G' subset.eq G$ has minimum degree $MinimalDegree(G') >= d - C$, then $G'$ contains a spanning $f$-regular subgraph for any even $2 <= f <= d\/2$. 
 ]<lemma:f-factor>
 
 #proof[
