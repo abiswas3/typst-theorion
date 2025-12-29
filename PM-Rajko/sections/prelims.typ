@@ -36,8 +36,8 @@ $
 
 Note that $s_i^2(x) >= 0$ for any $x$ by definition. 
 Therefore, if there were to exist some $x^(*)$ such that $p_i (x^(*)) = 0$ for all $p_i in Axioms$, then $sum_(i in [m]) t_i (x^*) p_i ( x^* ) = 0$. 
-This would imply that $h >=0$, but our proof $Proof$ shows that $h = -1$. 
-Therefore, the existence of the set of polynomials $Proof$ act as a formal proof of the claim that the set of polynomial equations in $Axioms$ is unsatisfiable.
+This would imply that $h >=0$, but if proof $Proof$ shows that $h = -1$, then by the contrapositive, no such $x^*$ can exist. 
+Therefore, the existence of the sequence of polynomials $Proof$ act as a formal proof of the claim that the set of polynomial equations in $Axioms$ is unsatisfiable.
 
 #definition(title: [Complexity Of SoS Refutation])[
 If we let $Pi$ denote the set of all valid SoS refutations for $Axioms$, then the complexity of refuting $Axioms$ in the SoS proof system is given by 
@@ -45,9 +45,9 @@ If we let $Pi$ denote the set of all valid SoS refutations for $Axioms$, then th
 #math.equation(block:true, numbering:none)[
 $ Degree(Axioms SOS bot) := min_(Proof in Pi)Degree(Proof)
 $]
-]
+]<defn:degree>
 
-Polynomial Calculus (PC) is a dynamic version of the static Nullstellensatz proof system @fleming2019semialgebraic[~see Section 1.3] operating over an arbitrary but fixed field, based on the following inference rules.
+Polynomial Calculus (PC) is a dynamic version of the static Nullstellensatz proof system @fleming2019semialgebraic[~see Section 1.3 for the defintion of Nullstellensatz proof systems] operating over an arbitrary but fixed field, based on the following inference rules.
 
 1. From polynomial equations $f=0$ and $g=0$ where $f,g in Field[arrow(X)]$ we can derive $alpha f + beta g = 0$ for $alpha, beta in Field$.
 
@@ -70,14 +70,14 @@ If we let $Pi$ denote the set of all PC refutations of $Axioms$, then
 
 To ensure Boolean variables, we assume the axioms $Axioms$ always contain the equations $x_i^2 - x_i=0$ and $overline(x)^2_i - overline(x)_i = 0$ for all $i in [n]$. 
 Equivalently, we can also just work in the ring $Field[x_1, dots, overline(x)_n]\/(x_1^2 - x_1, dots, overline(x)_n^2 - overline(x)_n)$ of multi-linear polynomials.
-Multi-linearity implies that the degree of any proof can be at most $n$ i.e a proof of degree $Omega(n)$ is the largest lower bound one can hope to achieve.
+Multi-linearity implies that the degree of any proof can be at most $n$ i.e. a proof of degree $Omega(n)$ is the largest lower bound one can hope to achieve.
 Additionally, we will also assume that $1 - x_i - overline(x)_i=0$ is also included in $Axioms$, for all $i in [n]$, which ensures that the bar elements are bit complements of the non-bar elements.
 The following lemma is by #citet(<buss1999linear>) and gives an instance where perfect matching is hard to refute in the worst case. 
 #lemma(title: [Worst Case Hard Instance For PC])[
 Given any odd $n in NN$, there exists a graph $H$ with $n$ vertices and maximum degree $MaxDegree(H)= 5$ such that Polynomial Calculus over any field of characteristic different from 2 requires degree $Theta(n)$ to refute $Card(H, arrow(1))$.
 ]<lemma:worst-case-instance-PC>
 
-A description of the  worst case hard instance for SoS can be found in @Austrin_2022[Theorem A.3].
+A description of the  worst case hard instance for SoS can be found in @Austrin_2022[Theorem A.3] which is also derived from @buss1999linear.
 
 #lemma(title: [Worst Case Hard Instance For SOS])[
 Given any odd $n in NN$, there exists a graph $H$ with $n$ vertices and maximum degree $MaxDegree(H)= 5$ such that SoS refutations requires degree $Theta(n)$ to refute $Card(H, arrow(1))$.
@@ -85,7 +85,7 @@ Given any odd $n in NN$, there exists a graph $H$ with $n$ vertices and maximum 
 
 An important lemma we will need is that given a set of axioms $Axioms$ over the ring $Field[x_1, dots, x_n]$, a partial assignment of variables can only make refuting $Axioms$ easier.
 Given a set of $m$ polynomial equality constraints $Axioms$ over boolean variables ${x_1, dots, x_n}$, let the family of functions ${f_i: {0,1}^n -> {"True", "False"} }_(i in [m])$, denote predicates for satisfiability for each constraint.
-For example, given $alpha in {0,1}^n$, $f_i(alpha) = "True"$ if the $i$'th polynomial constraint $axiomSmall_i in Axioms$ is satisfied i.e $q_i (alpha) = 0$.
+For example, given $alpha in {0,1}^n$, $f_i (alpha) = "True"$ if the $i$'th polynomial constraint $axiomSmall_i in Axioms$ is satisfied i.e $q_i (alpha) = 0$.
 We say $Axioms$ is satisfied if there exists $ alpha in {0,1}^n$ such that $f_i (alpha) = "True" <=> axiomSmall_i (alpha)=0$ for all $i in [m]$.
 Given a map $rho: {x_1, dots, x_n } -> {x_1, dots, x_n, overline(x)_1, dots, overline(x)_n, 1, 0 }$, the restriction of a function $f: {0,1}^n -> {0,1}$, denoted by $f|_rho$, is defined as $f|_rho (x_1, dots, x_n) = f(rho(x_1), dots, rho(x_n))$.
 Similarly, the restriction of formula $Axioms$ is defined as $Axioms|_rho = {f_{1}|_rho, dots, f_{m}|_rho }$.
@@ -95,11 +95,12 @@ For example, $Axioms = {f_a, f_b, "True" }$ and $Axioms' = {f_a, f_b}$ are equiv
 
 #definition(title: [Affine Restriction])[
 We say that an axiom $Axioms'$ is an
-affine restriction of $Axioms$ if there is a map $rho : {x_1,dots,x_n} -> {x_1, dots, x_n, overline(x)_1, dots, overline(x)_n, 1, 0 }$ such that $Axioms equiv Axioms|_{rho}$.
+affine restriction of $Axioms$ if there is a map $rho : {x_1,dots,x_n} -> {x_1, dots, x_n, overline(x)_1, dots, overline(x)_n, 1, 0 }$ such that $Axioms equiv Axioms|_(rho)$.
 
 ]<def:affine-restriction>
 
 #lemma[Let $Axioms, Axioms'$ be axioms such that $Axioms'$ is an affine restriction of $Axioms$, and each axiom
+#show heading: set block(below: 2em)
 of $Axioms$ depends on a constant number of variables, then
 
 - For any arbitrary but fixed $Field$ it holds that $Degree(Axioms PC bot) in Omega(Degree(Axioms' PC bot))$
@@ -125,7 +126,7 @@ Next, we give a definition of pseudorandom graphs.
 
 #definition(title: [$(n, d, lambda)$-graphs])[
 Let $G$ be a $d$-regular graph on $n$ vertices, and, let $lambda_1 >= lambda_2 >= dots >= lambda_n$ denote eigenvalues of the adjacency matrix of $G$.
-We say $G$ is an $(n, d, lambda)$-graph if $lambda(G)} := max_( 2, dots, n) max |lambda_i| <= lambda $.
+We say $G$ is an $(n, d, lambda)$-graph if $lambda(G) := max_( 2, dots, n) max |lambda_i| <= lambda $.
 
 ]<def:expander-graphs>
 

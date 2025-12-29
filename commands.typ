@@ -106,3 +106,23 @@
 #let Embedding(x) = $psi(#x)$
 #let MinimalDegree(x) = $delta_(#x)$
 #let Size(x) = $abs(#x)$
+
+// I'll move this 
+#let Language(x) = $L_(#x)$
+#let InputAlphabet = $Sigma$
+#let TapeAlphabet = $Gamma$
+#let NumTapes = $k$
+#let Ptr = $p$
+#let States = $cal(Q)$
+#let Left = $sans(L)$
+#let Right = $sans(R)$
+#let Stay = $sans(S)$
+#let Word = $arrow(w)$
+#let InitialState = $q_0$
+#let AcceptState = $q_("Accept")$
+#let RejectState = $q_("Reject")$
+#let InitialConfig = $C_0$
+#let AcceptConfig = $C_("Accept")$
+#let RejectConfig = $C_("Reject")$
+#let TransitionFunction = $delta$
+#let Moves = ${Left, Right, Stay}$

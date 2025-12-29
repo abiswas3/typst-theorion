@@ -25,7 +25,7 @@ In algebraic proof systems, we are given a set $Axioms ={ axiomSmall_(i) (arrow(
 In PC, the equations can be over an arbitrary, but fixed field $Field$, and in the SoS the coefficients are  over the reals.
 We say a proof $Proof$ is a refutation of $Axioms$, if it is a proof of the claim (in the specified language) that there exists no assignment of $arrow(x) in Field^n$ that satisfies _all_ the polynomial equations in $Axioms$.
 In PC and SoS, the proof $Proof$ is itself expressed as a sequence of polynomials.
-Two common measures of the complexity of a semi-algebraic proof are size (the number of monomials appearing in the proof) and the degree (the largest degree of the proof polynomials that refute $Axioms$).
+Two common measures of the complexity of a semi-algebraic proof are size (the number of monomials appearing in the proof) and the degree (the largest degree of the proof polynomials that refute $Axioms$, see @defn:degree).
 Trade-offs between the two are well known; in particular, any degree $d$ proof has size at most $n^(O(d))$.
 Therefore, in this work we focus on the former#footnote[Note that exponential size lower bounds only follow from degree lower bounds $d >> sqrt(n)$, as $d = O(sqrt(n))$ yields only subexponential size bounds $n^(O(sqrt(n))) = 2^(O(sqrt(n)log n))$.].
 We denote the smallest maximum degree over all proofs that refute $Axioms$ in PC and SoS, with $Degree(Axioms PC bot)$ and $Degree(Axioms SOS bot)$, respectively.
@@ -73,7 +73,8 @@ Formally, we prove the following (for the definition of $(n, d, lambda)$-graphs 
   There exist universal constants $epsilon, n_0, d_0 in NN$ such that for any *odd* $n >= n_0$ and *even* $d in [d_0, n]$, the following holds for *any* $(n, d, lambda)$-graph $G$ with $lambda < epsilon d$, and for any *odd* $1 <= t <= d$:
   #math.equation(block: true, numbering: none)[
   $
-  Degree(Card(G, arrow(t)) PC bot = ) = Omega(n/(log n))  
+  Degree(Card(G, arrow(t)) PC bot = ) = Omega(n/(log n)) \ 
+  Degree(Card(G, arrow(t)) SOS bot = ) = Omega(n/(log n)) \ 
   $
 ]
 

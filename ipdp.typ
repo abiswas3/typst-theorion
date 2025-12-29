@@ -30,41 +30,39 @@
 #set heading(numbering: "1.1.1.a")
 
 
-#show: conf.with(
-  doc_title : [Interactive Proofs For Distribution Testing With Conditional Oracles],
-  short_title: "Interactive Proofs For Distribution Testing",
-  short_authors: "Ari, Canonne, Bun, Sivakumar",
-  authors: (
-    (
-      name: "Ari Biswas",
-      affiliation: "University Of Warwick",
-      email: "",
-    ),
-    (
-      name: "Mark Bun",
-      affiliation: "Boston University",
-      email: "",
-    ),
-    (
-      name: "Cle\u{300}ment Canonne",
-      affiliation: "University Of Sydney",
-      email: "",
-    ),
-    (
-      name: "Satchit Sivakumar",
-      affiliation: "Boston University",
-      email: "",
-    ),
-  ),
-)
-
+// #show: conf.with(
+//   doc_title : [Interactive Proofs For Differential Private Counting],
+//   short_title: "IPDP",
+//   short_authors: "Ari and Cormode",
+//   authors: (
+//     (
+//       name: "Ari Biswas",
+//       affiliation: "University Of Warwick",
+//       email: "tcs@randomwalks.xyz",
+//     ),
+//     (
+//       name: "Graham Cormode",
+//       affiliation: "University Of Warwck/ Meta AI",
+//       email: "g.cormode@warwick.ac.uk",
+//     ),
+//   ),
+// )
+//
 #abstract[
-We revisit the framework of interactive proofs for distribution testing, first introduced by Chiesa and Gur (ITCS 2018), which has recently experienced a surge in interest, accompanied by notable progress (e.g., Herman and Rothblum, STOC 2022, FOCS 2023; Herman, RANDOM~2024). 
-In this model, a data-poor verifier  determines whether a probability distribution has a property of interest by interacting with an all-powerful, data-rich but untrusted prover bent on convincing them that it has the property. While prior work gave sample-, time-, and communication-efficient protocols for testing and estimating a range of distribution properties, they all suffer from an inherent issue: for most interesting properties of distributions over a domain of size $N$, the verifier must draw at least $Omega(sqrt(N))$ samples of its own. While sublinear in $N$, this is still prohibitive for large domains encountered in practice.
-
-In this work, we circumvent this limitation by augmenting the verifier with the ability to perform an exponentially smaller number of more powerful (but reasonable) _pairwise conditional_ queries, effectively enabling them to perform "local comparison checks" of the prover's claims.
-We systematically investigate the landscape of interactive proofs in this new setting, giving polylogarithmic query and sample protocols for (tolerantly) testing all _label-invariant_ properties, thus demonstrating exponential savings without compromising on communication, for this large and fundamental class of testing tasks.
+Differential Privacy (DP) is often presented as a strong privacy-enhancing technology with broad applicability and advocated as a de facto standard for releasing aggregate statistics on sensitive data. 
+However, in many embodiments, DP introduces a new attack surface: a malicious entity entrusted with releasing statistics could manipulate the results and use the randomness of DP as a convenient smokescreen to mask its nefariousness. 
+Since revealing the random noise would obviate the purpose of introducing it, the miscreant may have a perfect alibi.  
+To close this loophole, we introduce the idea of _Interactive Proofs For Differential Privacy_, which requires the publishing entity to output a zero knowledge proof that convinces an efficient verifier that the output is both DP and reliable.
+Such a definition might seem unachievable, as a verifier must validate that DP randomness was generated faithfully without learning anything about the randomness itself. 
+We resolve this paradox by carefully mixing private and public randomness to compute verifiable DP counting queries with theoretical guarantees and show that it is also practical for real-world deployment. 
+We also demonstrate that computational assumptions are necessary by showing a separation between information-theoretic DP and computational DP under our definition of verifiability. 
 ]
+= hello
+#lorem(300)
+
+= hello 
+#lorem(500):w
+
 
 // #include "/PM-Rajko/sections/introduction.typ"
 // #include "/PM-Rajko/sections/prelims.typ"

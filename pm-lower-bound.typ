@@ -53,6 +53,7 @@ Austrin and Risse [SODA, 2021] showed that refuting perfect matchings in sparse 
 We extend their result by showing the same lower bound holds for *all* $d$-regular graphs with a mild spectral gap.
 As a direct consequence, we also positively resolve the open problem posed by Buss and Nordstr\u{00F6}m, which asks, _"Are even colouring formulas over expander graphs hard for polynomial calculus over fields of characteristic distinct from 2 ?"_
 ]
+#set block(below: 1em)
 
 #include "/PM-Rajko/sections/introduction.typ"
 #include "/PM-Rajko/sections/prelims.typ"

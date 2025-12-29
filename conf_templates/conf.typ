@@ -46,6 +46,7 @@
       size: 12pt,
       )
     set heading(numbering: "1.1.1.1")
+    show heading: set block(below: 1em)
 
     show title: set text(size: 17pt)
     show title: set align(center)

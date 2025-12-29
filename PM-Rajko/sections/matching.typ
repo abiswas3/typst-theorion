@@ -83,7 +83,7 @@ $
 To prove @eq:main-goal, it suffices to show 
 $
 |S| + |T|  &<= abs(S) f - Size(T) f + Size(T) (d-C) - CutEdges(S, T, G')  #<eq:to-show> \ 
-     &<= |S| f - sum_(w \in T) (f - Size( Neighbourhood(G', w) without S)) 
+     &<= |S| f - sum_(w in T) (f - Size( Neighbourhood(G', w) without S)) 
 $
 We distinguish a few cases.
 
@@ -135,9 +135,9 @@ Using the @lemma:expanders-mixing-lemma, we have
 $
 CutEdges(S, T, G) <= CutEdges(S, T, G') &<= d/n Size(S) Size(T) + epsilon d sqrt(Size(S) Size(T)) 	\
  &< d ((C+3))/((C+4)) Size(T) + epsilon d Size(T)sqrt((C+3)) \
-&= |T|d <= ( (C+3)/ (C+4}) + epsilon sqrt(C+3)) \
-&< |T|d <= ( (C+3)/(C+4) + 1/ (2(C+4)) )\
-&= |T|d<= ( 1 - (1)/(2(C+4))) $
+&= abs(T)d <= ( (C+3)/ (C+4}) + epsilon sqrt(C+3)) \
+&< abs(T)d <= ( (C+3)/(C+4) + 1/ (2(C+4)) )\
+&= abs(T)d<= ( 1 - (1)/(2(C+4))) $
 where the penultimate inequality follows from the upper bound on $epsilon$. For $d$ sufficiently large in terms of $C$ we obviously have
 $
      |T|d <= (1 - 1/ (2(C+4)) ) < |T|d - |T|(C + 3) < |S| + |T|(d - C - 3)
