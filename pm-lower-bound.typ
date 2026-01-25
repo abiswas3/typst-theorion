@@ -30,24 +30,24 @@
 #set heading(numbering: "1.1.1.a")
 
 
-#show: conf.with(
-  doc_title : [Refuting Perfect Matchings in Spectral Expanders is Hard],
-  short_title: "Refuting Perfect Matchings in Spectral Expanders is Hard",
-  short_authors: "Ari Biswas and Rajko Nenadov",
-  authors: (
-    (
-      name: "Ari Biswas",
-      affiliation: "University Of Warwick",
-      email: "tcs@randomwalks.xyz",
-    ),
-    (
-      name: "Rajko Nenadov",
-      affiliation: "University Of Auckland",
-      email: "rajko.nenadov@auckland.ac.nz",
-    ),
-  ),
-)
-
+// #show: conf.with(
+//   doc_title : [Refuting Perfect Matchings in Spectral Expanders is Hard],
+//   short_title: "Refuting Perfect Matchings in Spectral Expanders is Hard",
+//   short_authors: "Ari Biswas and Rajko Nenadov",
+//   authors: (
+//     (
+//       name: "Ari Biswas",
+//       affiliation: "University Of Warwick",
+//       email: "tcs@randomwalks.xyz",
+//     ),
+//     (
+//       name: "Rajko Nenadov",
+//       affiliation: "University Of Auckland",
+//       email: "rajko.nenadov@auckland.ac.nz",
+//     ),
+//   ),
+// )
+//
 #abstract[This work studies the complexity of refuting the existence of a perfect matching in spectral expanders with an odd number of vertices, in the Polynomial Calculus (PC) and Sum of Squares (SoS) proof system.
 Austrin and Risse [SODA, 2021] showed that refuting perfect matchings in sparse $d$-regular _random_ graphs, requires with high probability, proofs with degree $Omega(n/(log n))$ in the above proof systems. 
 We extend their result by showing the same lower bound holds for *all* $d$-regular graphs with a mild spectral gap.

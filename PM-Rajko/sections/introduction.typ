@@ -26,8 +26,11 @@ In PC, the equations can be over an arbitrary, but fixed field $Field$, and in t
 We say a proof $Proof$ is a refutation of $Axioms$, if it is a proof of the claim (in the specified language) that there exists no assignment of $arrow(x) in Field^n$ that satisfies _all_ the polynomial equations in $Axioms$.
 In PC and SoS, the proof $Proof$ is itself expressed as a sequence of polynomials.
 Two common measures of the complexity of a semi-algebraic proof are size (the number of monomials appearing in the proof) and the degree (the largest degree of the proof polynomials that refute $Axioms$, see @defn:degree).
-Trade-offs between the two are well known; in particular, any degree $d$ proof has size at most $n^(O(d))$.
-Therefore, in this work we focus on the former#footnote[Note that exponential size lower bounds only follow from degree lower bounds $d >> sqrt(n)$, as $d = O(sqrt(n))$ yields only subexponential size bounds $n^(O(sqrt(n))) = 2^(O(sqrt(n)log n))$.].
+Trade-offs between the two are known.
+If $Axioms$ is the indexed set of polynomials with degree at most $k$, and if $d$ is the degree of the SoS refutation; then via Corollary 1, #cite(<atserias2019size>, form: "prose") show that the size $s$ of the refutation is related as $s >= (d-k-4)^2/(32(n+1))$. 
+In this work, to prove hardness of refutations in the SoS proof system we show degree lower bounds of $d in Omega(n/(log n))$.
+By the above relation, this implies exponential size lower bounds in $n$ as well. 
+Similar size-degree trade-offs are also known for PC @impagliazzo1999lower, and thus it suffices for us to just show degree lower bounds to get exponential size lower bounds.
 We denote the smallest maximum degree over all proofs that refute $Axioms$ in PC and SoS, with $Degree(Axioms PC bot)$ and $Degree(Axioms SOS bot)$, respectively.
 One motivation for proving lower bounds for algebraic proof systems, as opposed to propositional proof systems, is that often they imply lower bounds for a broad family of related algorithms for solving combinatorial optimisation problems.
 Similarly, upper bounding the proof length has led to the fruitful discovery of many efficient algorithms.
