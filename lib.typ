@@ -2,3 +2,5 @@
 #import "cosmos/cosmos.typ"
 #import cosmos.default: *
 #import cosmos.simple: *
+#import "conf_templates/conf.typ": conf, abstract
+#import "commands.typ": *
