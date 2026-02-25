@@ -2,7 +2,8 @@
 #let abstract(content) =  align(left)[
   #set par(justify: true)
   #align(center)[*ABSTRACT*] 
-  #text(font: "Libertinus Serif", size: 0.9em)[#content]
+  #text(font: "New Computer Modern", size: 0.9em)[#content]
+  // #text(font: "Libertinus Serif", size: 0.9em)[#content]
 ]
 
 #let conf(
@@ -42,7 +43,8 @@
 
     set par(justify: true)
     set text(
-      font: "Libertinus Serif",
+      font: "New Computer Modern",
+      // font: "Libertinus Serif",
       size: 12pt,
       )
     set heading(numbering: "1.1.1.1")

@@ -69,17 +69,20 @@
   }
 }
 
-/// Register global colors.
-#let (get-primary-border-color, set-primary-border-color) = use-state("fancy-primary-border-color", rgb("#7287fd").darken(30%))
-#let (get-primary-body-color, set-primary-body-color) = use-state("fancy-primary-body-color", rgb("#7287fd").lighten(95%))
+// Pilot Iroshizuku theme
+//   primary   → definition   : Kiri-same  (霧雨, misty rain)    — soft blue-grey, subtle
+//   secondary → theorem/lemma: Tsuki-yo   (月夜, moonlit night)  — deep navy-blue, prominent
+//   tertiary  → proposition  : Fuyu-syogun (冬将軍, winter general) — steel blue, mid-strength
 
-// colour of box in title of defintion
-#let (get-secondary-border-color, set-secondary-border-color) = use-state("fancy-secondary-border-color", rgb("#179299").darken(
-  0%,
-))
-#let (get-secondary-body-color, set-secondary-body-color) = use-state("fancy-secondary-body-color", rgb("#179299").lighten(95%))
-#let (get-tertiary-border-color, set-tertiary-border-color) = use-state("fancy-tertiary-border-color", rgb("#179299").darken(30%))
-#let (get-tertiary-body-color, set-tertiary-body-color) = use-state("fancy-tertiary-body-color", rgb("#179299").lighten(95%))
+/// Register global colors.
+#let (get-primary-border-color, set-primary-border-color) = use-state("fancy-primary-border-color", rgb("#8FA8BF"))        // Kiri-same
+#let (get-primary-body-color, set-primary-body-color) = use-state("fancy-primary-body-color", rgb("#8FA8BF").lighten(92%)) // near-white
+
+#let (get-secondary-border-color, set-secondary-border-color) = use-state("fancy-secondary-border-color", rgb("#1C4882"))        // Tsuki-yo
+#let (get-secondary-body-color, set-secondary-body-color) = use-state("fancy-secondary-body-color", rgb("#1C4882").lighten(92%)) // pale blue
+
+#let (get-tertiary-border-color, set-tertiary-border-color) = use-state("fancy-tertiary-border-color", rgb("#607D9B"))        // Fuyu-syogun
+#let (get-tertiary-body-color, set-tertiary-body-color) = use-state("fancy-tertiary-body-color", rgb("#607D9B").lighten(92%)) // pale steel
 
 /// Register global symbols.
 #let (get-primary-symbol, set-primary-symbol) = use-state(
