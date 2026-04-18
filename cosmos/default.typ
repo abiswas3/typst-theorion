@@ -265,7 +265,14 @@
 /// - body (content): Content of the remark
 /// -> content
 #let remark = note-box.with(
-  fill: rgb("#118D8D"),
+  fill: rgb("#607D9B"),  // Iroshizuku Fuyu-syogun (冬将軍) — steel blue
+  // prev: rgb("#118D8D") teal
   title: theorion-i18n-map.at("remark"),
   icon-name: "comment",
+)
+
+#let claim = note-box.with(
+  fill: rgb("#1C4882"),  // Iroshizuku Tsuki-yo (月夜) — deep navy blue
+  title: "Claim",
+  icon-name: "arrow-right",
 )

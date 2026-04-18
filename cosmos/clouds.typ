@@ -12,7 +12,7 @@
   // Main rendering
   let rendered = block(inset: 1em, fill: fill, radius: .4em, width: 100%, ..args)[
     #if full-title != "" {
-      strong(full-title) + sym.space
+      strong(text(fill: rgb("#1C4882"), full-title)) + sym.space
     }
     #body
   ]
@@ -38,26 +38,32 @@
 }
 
 
-// Core theorems
+// Two-tone monochrome palette — Tsuki-yo navy (#1C4882)
+//   Results  (theorem, lemma, corollary, proposition, conjecture): stronger tint
+//   Foundations (definition, axiom, postulate, assumption, property): lighter tint
+#let _result-fill = rgb("#1C4882").lighten(85%)
+#let _foundation-fill = rgb("#1C4882").lighten(92%)
+
+// Core theorems — results
 #let (theorem-counter, theorem-box, theorem, show-theorem) = make-frame(
   "theorem",
   theorion-i18n-map.at("theorem"),
   inherited-levels: 2,
-  render: render-fn.with(fill: red.lighten(85%)),
+  render: render-fn.with(fill: _result-fill),
 )
 
 #let (lemma-counter, lemma-box, lemma, show-lemma) = make-frame(
   "lemma",
   theorion-i18n-map.at("lemma"),
   counter: theorem-counter,
-  render: render-fn.with(fill: teal.lighten(85%)),
+  render: render-fn.with(fill: _result-fill),
 )
 
 #let (corollary-counter, corollary-box, corollary, show-corollary) = make-frame(
   "corollary",
   theorion-i18n-map.at("corollary"),
   inherited-from: theorem-counter,
-  render: render-fn.with(fill: navy.lighten(90%)),
+  render: render-fn.with(fill: _result-fill),
 )
 
 // Definitions and foundations
@@ -65,21 +71,21 @@
   "definition",
   theorion-i18n-map.at("definition"),
   counter: theorem-counter,
-  render: render-fn.with(fill: olive.lighten(85%)),
+  render: render-fn.with(fill: _foundation-fill),
 )
 
 #let (axiom-counter, axiom-box, axiom, show-axiom) = make-frame(
   "axiom",
   theorion-i18n-map.at("axiom"),
   counter: theorem-counter,
-  render: render-fn.with(fill: green.lighten(85%)),
+  render: render-fn.with(fill: _foundation-fill),
 )
 
 #let (postulate-counter, postulate-box, postulate, show-postulate) = make-frame(
   "postulate",
   theorion-i18n-map.at("postulate"),
   counter: theorem-counter,
-  render: render-fn.with(fill: maroon.lighten(85%)),
+  render: render-fn.with(fill: _foundation-fill),
 )
 
 // Important results
@@ -87,28 +93,28 @@
   "proposition",
   theorion-i18n-map.at("proposition"),
   counter: theorem-counter,
-  render: render-fn.with(fill: rgb("#179299").lighten(85%)),
+  render: render-fn.with(fill: _result-fill),
 )
 
 #let (assumption-counter, assumption-box, assumption, show-assumption) = make-frame(
   "assumption",
   theorion-i18n-map.at("assumption"),
   counter: theorem-counter,
-  render: render-fn.with(fill: purple.lighten(85%)),
+  render: render-fn.with(fill: _foundation-fill),
 )
 
 #let (property-counter, property-box, property, show-property) = make-frame(
   "property",
   theorion-i18n-map.at("property"),
   counter: theorem-counter,
-  render: render-fn.with(fill: eastern.lighten(85%)),
+  render: render-fn.with(fill: _foundation-fill),
 )
 
 #let (conjecture-counter, conjecture-box, conjecture, show-conjecture) = make-frame(
   "conjecture",
   theorion-i18n-map.at("conjecture"),
   counter: theorem-counter,
-  render: render-fn.with(fill: navy.lighten(85%)),
+  render: render-fn.with(fill: _result-fill),
 )
 
 /// Collection of show rules for all theorem environments

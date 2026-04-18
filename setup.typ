@@ -23,7 +23,7 @@
   // footnotes:  near-black
   show link: underline
   show link: set text(rgb("#006FA6"), weight: "semibold")       // Pilot Iroshizuku Kon-peki
-  show cite: set text(fill: rgb("#006FA6").lighten(10%), weight: "medium") // prev: rgb("#1e66f5")
+  show cite: set text(fill: rgb("#006FA6").lighten(10%), weight: "medium", size: 0.92em) // prev: rgb("#1e66f5")
   show footnote.entry: set text(fill: rgb("#282828"))
   show ref: set text(fill: rgb("#0369a1"), weight: "bold")
   // prev ref colour: rgb("#C5050C").lighten(18%) rose-pink, before that rgb("#006633") green

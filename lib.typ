@@ -2,7 +2,8 @@
 #import "cosmos/cosmos.typ"
 #import cosmos.default: *
 #import cosmos.simple: *
-#import "conf_templates/conf.typ": conf, abstract
+#import "conf_templates/conf.typ": conf
+#import "conf_templates/paper.typ": paper, abstract
 #import "conf_templates/conf_two_col.typ": conf-two-col
 #import "commands.typ": *
 #import "setup.typ": paper-setup

@@ -210,6 +210,7 @@
   ),
 )
 
+
 /// Collection of show rules for all theorem environments
 /// Applies all theorion-related show rules to the document
 ///
