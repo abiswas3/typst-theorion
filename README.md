@@ -1,4 +1,10 @@
-# 🌌 Theorion
+# random-walks
+
+> This is a fork of [Theorion](https://github.com/OrangeX4/typst-theorion) by OrangeX4. It has been customised with AI-assisted prompting to include additional paper/thesis templates, custom colour schemes, citation macros, and conference-style formatting. Registered locally as `@local/random-walks`.
+
+---
+
+# 🌌 Theorion (upstream)
 
 [![Typst Universe](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Ftheorion&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=universe&color=%2339cccc)](https://typst.app/universe/package/theorion)
 ![GitHub](https://img.shields.io/github/license/OrangeX4/typst-theorion)

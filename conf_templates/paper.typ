@@ -1,15 +1,3 @@
-// Clean single-column paper template
-// Usage:
-//   #show: paper.with(
-//     title: "My Paper Title",
-//     short-title: "Short Title",
-//     short-authors: "A. Biswas et al.",
-//     authors: (
-//       (name: "Ari Biswas", affiliations: "University of Warwick & On A Tangent", email: "tcs@randomwalks.xyz"),
-//     ),
-//   )
-//   #abstract[...]
-
 #let _navy = rgb("#1C4882")
 
 // --- Abstract function ---
@@ -35,7 +23,7 @@
   // Page geometry
   set page(
     paper: "us-letter",
-    margin: (x: 1.25in, top: 1in, bottom: 1in),
+    margin: (x: 1in, top: 1in, bottom: 1in),
     header: context {
       let page = counter(page).get().first()
       let body = if page == 1 []

@@ -1,5 +1,5 @@
 #import "../core.typ": *
-#import "../deps.typ": octique-inline, showybox
+#import "../deps.typ": showybox
 
 /// Global result configuration to control visibility of proofs and solutions
 /// Modified by `#set-result("noanswer")`
@@ -180,20 +180,7 @@
               + fill.to-hex()
               + "; display: flex; align-items: center;",
           ),
-          html.elem(
-            "span",
-            attrs: (
-              style: "display: inline-flex; align-items: center; justify-content: center; width: 1em; height: 1em; vertical-align: middle; margin: 0em .5em 0em 0em;",
-            ),
-            html.frame(octique-inline(
-              height: 1.2em,
-              width: 1.2em,
-              color: fill,
-              baseline: .2em,
-              icon-name,
-            )),
-          )
-            + title-i18n,
+          title-i18n,
         )
         body
       },
@@ -210,15 +197,7 @@
         text(
           fill: fill,
           weight: "semibold",
-          octique-inline(
-            height: 1.2em,
-            width: 1.2em,
-            color: fill,
-            baseline: .2em,
-            icon-name,
-          )
-          // + h(.5em)
-          + title-i18n + ":" + h(.5em),
+          title-i18n + ":" + h(.5em),
         )
       // ) // removed the block so title is on the same line
          body 
