@@ -9,6 +9,10 @@
   ..args,
   body,
 ) = {
+  // Suppress equation numbering inside theorem-like environments. Equation
+  // numbering is determined at layout time, so applying the set rule here
+  // (where the body is wrapped) reaches the equations inside `body`.
+  let body = { set math.equation(numbering: none); body }
   // Main rendering
   let rendered = block(inset: 1em, fill: fill, radius: .4em, width: 100%, ..args)[
     #if full-title != "" {

@@ -37,8 +37,8 @@
 
   // Fonts
   set text(font: "TeX Gyre Pagella", size: 10pt)
-  set par(leading: 0.58em, justify: true)
-  show math.equation: set text(font: "TeX Gyre Pagella Math")
+  set par(leading: 0.75em, justify: true)
+  show math.equation: set text(font: "New Computer Modern Math")
 
   // Footnotes
   show footnote.entry: set text(size: 8pt)
@@ -84,12 +84,12 @@
   v(1em)
 
   // === Authors ===
-  pad(x: 0em)[
+  align(center)[
     #set text(size: 8.5pt)
     #for (i, author) in authors.enumerate() {
       [#text(font: "Inter", size: 8.5pt)[#author.name],
        #text(style: "italic")[#author.affiliations],
-       #link("mailto:" + author.email)]
+       #text(size: 7.5pt, link("mailto:" + author.email))]
       if i < authors.len() - 1 { linebreak() }
     }
   ]
